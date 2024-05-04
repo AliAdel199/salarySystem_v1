@@ -1991,10 +1991,25 @@ setState(() {
     final pdf = pw.Document();
 
   pdf.addPage(
-    pw.Page(pageFormat: PdfPageFormat.a4,
-      build: (pw.Context context) => pw.Center(
-        child: pw.Text('Hello World!'),
-      ),
+    pw.Page(pageFormat: PdfPageFormat.a4,margin: pw.EdgeInsets.all(5),
+      build: (pw.Context context) =>pw.Container(decoration: pw.BoxDecoration(border: pw.TableBorder.all(color: PdfColors.black,width: 3,style: pw.BorderStyle.solid) ),
+        child:
+      pw.Column(
+        children:[
+          pw.Expanded(flex: 1,child: pw.Row(children: [
+            pw.Expanded(child: pw.Container(color: PdfColor.fromHex("#ffffff"))),
+              pw.Expanded(child: pw.Container(color: PdfColor.fromHex("#ffffff"))),
+                pw.Expanded(child: pw.Container(color: PdfColor.fromHex("#ffffff")))
+          ]),),
+            pw.Expanded(flex: 3,child: pw.Row(children: [
+            pw.Expanded(child: pw.Container(color: PdfColor.fromHex("#ffffff")))
+          ]),),
+            pw.Expanded(flex: 1,child: pw.Row(children: [
+            pw.Expanded(child: pw.Container(color: PdfColor.fromHex("#ffffff")))
+          ]),),
+          
+        ]
+      ),)
     ),
   );
 
